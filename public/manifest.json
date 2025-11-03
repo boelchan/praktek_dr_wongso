@@ -1,0 +1,22 @@
+{
+  "name": "Rekap Transfer",
+  "short_name": "Rekap",
+  "start_url": "/rekap-transfer/",
+  "scope": "/rekap-transfer/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#16a34a",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/rekap-transfer/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/rekap-transfer/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
