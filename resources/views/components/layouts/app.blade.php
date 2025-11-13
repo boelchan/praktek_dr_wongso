@@ -7,7 +7,6 @@
     <link rel="manifest" href="{{ asset('manifest.json') }}">
     <link rel="icon" type="image/x-icon" href="{{ asset('icon/favicon.ico') }}">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <title>{{ $title ?? 'RME' }}</title>

@@ -15,6 +15,7 @@
         "vite": "^7.0.4"
     },
     "dependencies": {
+        "@tabler/icons-webfont": "^3.35.0",
         "daisyui": "^5.0.50",
         "flatpickr": "^4.6.13"
     }
