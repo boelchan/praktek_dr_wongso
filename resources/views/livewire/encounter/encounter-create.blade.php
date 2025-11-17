@@ -1,24 +1,4 @@
 <x-layouts.content title="Kunjungan">
-    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-
-    <style>
-        .select2-dropdown {
-  background-color: white;
-  border: 1px solid #aaa;
-  border-radius: 4px;
-  box-sizing: border-box;
-  display: block;
-  position: absolute;
-  left: -100000px;
-  width: 100%;
-  z-index: 1051; }
-          .select2-dropdown {
-  @apply absolute block w-auto box-border bg-white border-solid border-2 border-gray-600 z-50 float-left;
-  }
-    </style>
-    
     <div class="grid lg:grid-cols-3 gap-4">
 
         <div class="card w-84 lg:w-full lg:col-span-2 min-w-84 border border-neutral-300">
@@ -27,7 +7,10 @@
                 <form wire:submit="store" class="lg:grid grid-cols-2 gap-10 gap-y-0">
                     <div>
                         <x-form.input label="Tanggal" model="encounter_date" type="date" required />
-                        <x-form.select label="Pasien" model="patientId" :options="$patients" required live />
+                        <x-form.select label="Pasien" model="patientId" :options="$patients" live />
+                        <x-form.select2 label="Pasien" model="patientId" :options="$patients" />
+
+
                         <x-form.input label="Keluhan" model="condition_keluhan" />
                         <fieldset class="fieldset">
                             <legend class="fieldset-legend">Tekanan Darah </legend>
@@ -86,7 +69,4 @@
         </div>
     </div>
 
-    <script>
-        $('#patientId').select2()
-    </script>
 </x-layouts.content>

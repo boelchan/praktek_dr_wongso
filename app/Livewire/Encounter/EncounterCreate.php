@@ -52,6 +52,10 @@ class EncounterCreate extends Component
 
     public function store()
     {
+        $this->validate([ 
+            'patientId' => 'required',
+        ]);
+        
         $encounter = Encounter::create([
             'patient_id' => $this->patientId,
             'encounter_date' => $this->encounter_date,
