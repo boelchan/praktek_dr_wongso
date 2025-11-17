@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('specimens', function (Blueprint $table) {
             $table->id();
             $table->string('ihs_number')->nullable();
-            $table->foreignId('encounter_id')->constrained('encounters');
-            $table->text('value');
+            $table->foreignId('encounter_id')->constrained('encounters')->onDelete('cascade');
+            $table->text('value')->nullable();
             $table->timestamps();
         });
     }

@@ -1,5 +1,17 @@
 <div class="absolute left-1/2 top-1/2 w-full -translate-x-1/2 -translate-y-1/2 p-3">
-    <div class="bg-base-100/60 card relative z-10 mx-auto w-full max-w-96 border border-slate-200 backdrop-blur-lg">
+    <div class="mx-auto max-w-96 align-center">
+        <img src="{{ asset('icon/icon-long.png') }}" alt="logo" class="h-10 mx-auto mb-1">
+        <div class="text-center">
+            Rekam Medis Elektronik
+        </div>
+        <div class="text-center mt-5">
+            Praktek Dokter
+        </div>
+        <div class="text-center">
+            dr. WONGSO SUHENDRO, SpOG
+        </div>
+    </div>
+    <div class="bg-base-100/60 card relative z-10 mx-auto mt-8 w-full max-w-96 border border-slate-200 backdrop-blur-lg">
         <div class="card-body">
             <h2 class="card-title mb-3">Login</h2>
             <form wire:submit.prevent="authenticate">
@@ -14,7 +26,7 @@
                 <fieldset class="fieldset">
                     <div class="flex-2 flex justify-between">
                         <legend class="fieldset-legend">Password</legend>
-                        <a href="{{ route('password.request') }}" class="btn btn-link p-0 btn-sm">Lupa password ?</a>
+                        {{-- <a href="{{ route('password.request') }}" class="btn btn-link p-0 btn-sm">Lupa password ?</a> --}}
                     </div>
 
                     <input type="password" placeholder="Password" class="input input-primary w-full" wire:model="password">

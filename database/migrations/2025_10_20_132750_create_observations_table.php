@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('observations', function (Blueprint $table) {
             $table->id();
             $table->string('ihs_number')->nullable();
-            $table->foreignId('encounter_id')->constrained('encounters');
+            $table->foreignId('encounter_id')->constrained('encounters')->onDelete('cascade');
             $table->string('category');
-            $table->integer('value')->default(0);
+            $table->integer('value')->default(0)->nullable();
             $table->timestamps();
         });
     }

@@ -1,4 +1,4 @@
-<div x-data="{ open: false }">
+<div x-data="{ open: true }">
     <!-- Bar atas -->
     <div class="flex justify-between">
         <div class="flex gap-2">

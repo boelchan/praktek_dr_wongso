@@ -36,13 +36,18 @@
                         <td class="p-2"> {{ $d->address }} </td>
                         <td class="p-2">
                             @if ($d->status == 'active')
-                                <div class="cursor-pointer badge badge-outline badge-success" wire:click="updateStatus({{ $d->id }}, 'non_active')" wire:confirm="Hapus ?">Aktif</div>
+                                <div class="cursor-pointer badge badge-outline badge-success" wire:click="updateStatus({{ $d->id }}, 'non_active')" wire:confirm="Non Aktifkan Pasien ?">Aktif</div>
                             @else
                                 <div class="cursor-pointer badge badge-outline badge-error" wire:click="updateStatus({{ $d->id }}, 'active')" wire:confirm="Aktifkan kembali ?">Non Aktif</div>
                             @endif
                         </td>
-                        <td class="p-2 flex flex-2 gap-2">
-                            <a href="{{ route('patient.edit', $d->id) }}"class="btn btn-xs btn-success btn-soft btn-square tooltip tooltip-left" data-tip="edit"><i class="ti ti-pencil text-lg"></i></a>
+                        <td class="p-2 flex flex-2 gap-2 justify-end">
+                            @if (count($d->encounter) == 0)
+                                <div class="btn btn-xs btn-error btn-soft btn-square tooltip tooltip-left" data-tip="hapus" wire:click="delete({{ $d->id }})" wire:confirm="Hapus ?"><i class="ti ti-trash text-lg"></i></div>
+                            @endif
+                            @if ($d->status == 'active')
+                                <a href="{{ route('patient.edit', $d->id) }}"class="btn btn-xs btn-success btn-soft btn-square tooltip tooltip-left" data-tip="edit"><i class="ti ti-pencil text-lg"></i></a>
+                            @endif
                             <a href="{{ route('patient.show', $d->id) }}"class="btn btn-xs btn-info btn-soft btn-square tooltip tooltip-left" data-tip="detail pasien"><i class="ti ti-list text-lg"></i></a>
                         </td>
                     </x-table.tr>

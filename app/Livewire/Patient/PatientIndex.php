@@ -28,9 +28,16 @@ class PatientIndex extends Component
         Toaster::success('Status berhasil diperbarui');
     }
 
+    public function delete($id)
+    {
+        Patient::destroy($id);
+
+        Toaster::success('Pasien berhasil dihapus');
+    }
+
     public function render()
     {
-        $data = Patient::when($this->search_full_name, fn ($q) => $q->where('full_name', 'like', '%'.$this->search_full_name.'%'))
+        $data = Patient::with('encounter')->when($this->search_full_name, fn ($q) => $q->where('full_name', 'like', '%'.$this->search_full_name.'%'))
             ->when($this->search_nik, fn ($q) => $q->where('nik', 'like', '%'.$this->search_nik.'%'))
             ->when($this->search_no_rm, fn ($q) => $q->where('no_rm', 'like', '%'.$this->search_no_rm.'%'))
             ->when($this->search_address, fn ($q) => $q->where('address', 'like', '%'.$this->search_address.'%'));

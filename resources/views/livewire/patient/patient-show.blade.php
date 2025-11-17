@@ -15,8 +15,8 @@
                     <p><span class="font-semibold">Tanggal Lahir :</span> {{ $pasien->dob }}</p>
                     <p><span class="font-semibold">Alamat :</span> {{ $pasien->address }}</p>
                     <p>
-                        <span class="badge {{ $pasien->status == 'active' ? 'badge-success' : 'badge-error' }}">
-                            {{ ucfirst($pasien->status) }}
+                        <span class="uppercase badge {{ $pasien->status == 'active' ? 'badge-success' : 'badge-error' }}">
+                            {{ $pasien->status }}
                         </span>
                     </p>
                 </div>
@@ -27,8 +27,10 @@
         <div class="card border border-base-300 lg:col-span-2">
             <div class="card-body">
                 <div class="flex gap-2">
-
-                    <h2 class="card-title">Riwayat Kunjungan</h2> <a href="{{ route('encounter.create', ['patient_id'=>$pasien->id])}}" class="btn btn-soft btn-primary"><i class="ti ti-plus text-lg"></i> Tambah</a>
+                    <h2 class="card-title">Riwayat Kunjungan</h2>
+                    @if ($pasien->status == 'active')
+                        <a href="{{ route('encounter.create', ['patient_id' => $pasien->id]) }}" class="btn btn-soft btn-primary"><i class="ti ti-plus text-lg"></i> Tambah</a>
+                    @endif
                 </div>
 
                 @forelse ($pasien->encounter as $k)
@@ -42,7 +44,9 @@
                             <span class="font-semibold">Tekanan Darah : </span>
                             @foreach ($k->observation as $o)
                                 {{ $o->value }}
-                                @if (!$loop->last) / @endif
+                                @if (!$loop->last)
+                                    /
+                                @endif
                             @endforeach
                         </p>
 

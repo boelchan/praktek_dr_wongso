@@ -96,8 +96,6 @@ class Profile extends Component
 
     public function render()
     {
-        Toaster::success('x!');
-
         return view('livewire.auth.profile');
     }
 }

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('dob');
             $table->string('gender');
             $table->string('address');
-            $table->string('status');
+            $table->string('status')->default('active');
             $table->timestamps();
         });
     }

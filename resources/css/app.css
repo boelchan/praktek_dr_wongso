@@ -15,6 +15,7 @@
 @source '../../resources/**/*.blade.php';
 @source '../../vendor/masmerise/livewire-toaster/resources/views/*.blade.php';
 
+
 /* Chrome, Edge, Safari */
 ::-webkit-scrollbar {
     width: 10px;

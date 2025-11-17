@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Patient;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -17,18 +18,14 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'admin',
-            'email' => 'admin@app.com',
+            'email' => 'admin@gmail.com',
             'password' => bcrypt('123'),
         ]);
         User::factory()->create([
-            'name' => 'Qurry',
-            'email' => 'qurry@gmail.com',
+            'name' => 'Operator',
+            'email' => 'operator@gmail.com',
             'password' => bcrypt('123'),
         ]);
-        User::factory()->create([
-            'name' => 'Mohammad Tayyib',
-            'email' => 'tayyip@gmail.com',
-            'password' => bcrypt('123'),
-        ]);
+        
     }
 }
