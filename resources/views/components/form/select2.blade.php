@@ -57,22 +57,29 @@
 
     {{-- DROPDOWN --}}
     <div class="relative">
-        <div x-show="open" x-transition class="absolute w-full bg-base-100 border border-gray-300 rounded shadow-md mt-1 z-50 max-h-60 overflow-y-auto p-2">
 
-            {{-- SEARCH --}}
-            <div class="mb-1">
-                <input x-ref="searchInput" type="text" class="border border-gray-300 rounded w-full px-3 py-2.5" placeholder="Cari ..." x-model="search" @keydown.arrow-down.prevent="moveDown()" @keydown.arrow-up.prevent="moveUp()" @keydown.enter.prevent="selectHighlighted()" />
+        <div x-show="open" x-transition class="absolute w-full bg-base-100 border border-gray-300 rounded shadow-md mt-1 z-50">
+
+            <!-- SEARCH BAR (ATAS) -->
+            <div class="border-b border-gray-300 px-3 flex items-center gap-0">
+                <i class="ti ti-search text-lg text-gray-500"></i>
+                <input x-ref="searchInput" type="text" class="h-9 w-full text-sm outline-hidden px-2" placeholder="Cari ..." x-model="search" @keydown.arrow-down.prevent="moveDown()" @keydown.arrow-up.prevent="moveUp()" @keydown.enter.prevent="selectHighlighted()" />
             </div>
 
-            {{-- OPTIONS --}}
-            <template x-for="(item, index) in filtered()" :key="item.value">
-                <div class="p-2 cursor-pointer hover:bg-base-300 hover:text-black rounded" :class="highlight == index ? 'bg-base-300 text-black' : ''" @mouseenter="highlight = index" @click="select(item)">
+            <!-- DROPDOWN LIST (BAWAH) -->
+            <div class="max-h-80 overflow-y-auto py-2 px-4">
+                <template x-for="(item, index) in filtered()" :key="item.value">
+                    <div class="px-5 py-1 rounded cursor-pointer hover:bg-base-300" :class="highlight == index ? 'bg-base-300 text-black' : ''" @mouseenter="highlight = index" @click="select(item)">
+                        <span x-text="item.label" class="text-sm"></span>
+                    </div>
+                </template>
+            </div>
 
-                    <span x-text="item.label" class="text-sm"></span>
-                </div>
-            </template>
         </div>
+
+
     </div>
+
 
     <x-form.error :name="$model" />
 
