@@ -69,7 +69,7 @@
 
     {{-- DROPDOWN --}}
     <div class="relative">
-        <div x-show="open" x-transition class="absolute w-full bg-base-100 border border-gray-300 rounded shadow-md mt-1 z-50">
+        <div x-show="open" x-transition class="absolute w-full bg-base-100 border border-gray-300 rounded shadow-lg z-50">
 
             {{-- SEARCH --}}
             <div class="border-b border-gray-300 px-3 flex items-center gap-0">
@@ -78,11 +78,11 @@
             </div>
 
             {{-- LIST --}}
-            <div class="max-h-80 overflow-y-auto py-2 px-1" x-ref="optionList">
+            <div class="max-h-90 overflow-y-auto p-2" x-ref="optionList">
                 <template x-for="(item, index) in filtered()" :key="item.value">
-                    <div class="flex justify-left items-center px-1 py-1 rounded cursor-pointer hover:bg-base-300" :class="item.value == model ? 'bg-base-300 text-black' : ''" @click="select(item)">
+                    <div class="flex justify-left items-center px-0.5 py-2 rounded cursor-pointer hover:bg-base-300" @click="select(item)">
                         {{-- ICON CENTANG --}}
-                        <div class="w-7 flex justify-center">
+                        <div class="w-6 flex justify-center">
                             <template x-if="item.value == model">
                                 <i class="ti ti-check text-lg"></i>
                             </template>
