@@ -1,11 +1,14 @@
 <fieldset class="fieldset w-full" x-data="select2Keyboard($refs.originalSelect, @entangle($model).live)" @click.outside="open = false">
-
     @if ($label)
-        <legend class="fieldset-legend">{{ $label }}</legend>
+        <legend class="fieldset-legend">{{ $label }}
+            @if ($required)
+                <span class="text-red-500">*</span>
+            @endif
+        </legend>
     @endif
 
     {{-- SELECT asli --}}
-    <select x-ref="originalSelect" class="hidden">
+    <select x-ref="originalSelect" class="hidden" @if ($required) required @endif>
         <option value="">Pilih</option>
         @foreach ($options as $key => $value)
             <option value="{{ $key }}" @selected($model == $key)>{{ $value }}</option>
