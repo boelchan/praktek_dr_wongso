@@ -7,7 +7,6 @@
                 <form wire:submit="store" class="lg:grid grid-cols-2 gap-10 gap-y-0">
                     <div>
                         <x-form.input label="Tanggal" model="encounter_date" type="date" required />
-                        <x-form.select label="Pasien" model="patientId" :options="$patients" live />
                         <x-form.select2 label="Pasien" model="patientId" :options="$patients" />
 
 
