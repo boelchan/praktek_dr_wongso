@@ -7,8 +7,7 @@
         </legend>
     @endif
 
-    {{-- SELECT asli --}}
-    <select x-ref="originalSelect" class="hidden" @if ($required) required @endif>
+    <select x-ref="originalSelect" class="hidden">
         <option value="">Pilih</option>
         @foreach ($options as $key => $value)
             <option value="{{ $key }}" @selected($model == $key)>{{ $value }}</option>

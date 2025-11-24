@@ -8,10 +8,10 @@
                 </a>
             </x-slot:action>
 
-            <x-form.input label="No Rekam Medis" model="search_no_rm" floating live />
-            <x-form.input label="NIK" model="search_nik" floating live />
-            <x-form.input label="Nama" model="search_full_name" floating live />
-            <x-form.input label="Alamat" model="search_address" floating live />
+            <x-form.input label="No Rekam Medis" model="search_no_rm" live />
+            <x-form.input label="NIK" model="search_nik" live />
+            <x-form.input label="Nama" model="search_full_name" live />
+            <x-form.input label="Alamat" model="search_address" live />
 
         </x-table.filter>
 
