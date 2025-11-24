@@ -8,7 +8,7 @@
 
                 <div>
                     <x-form.input label="Tanggal" model="encounter_date" type="date" required />
-                    <x-form.select label="Pasien" model="patient_id" :options="$patients" required />
+                    <x-form.select2 label="Pasien" model="patient_id" :options="$patients" live required />
                     <x-form.input label="Keluhan" model="condition_keluhan" />
                     <legend class="fieldset-legend">Tekanan Darah </legend>
                     <fieldset class="fieldset">

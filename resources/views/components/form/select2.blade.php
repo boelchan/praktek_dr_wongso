@@ -65,22 +65,50 @@
             options: [],
 
             init() {
-                // load options from the select element
-                this.options = [...selectEl.options].map(o => ({
-                    value: o.value,
-                    label: o.text
-                }));
+                // load awal
+                this.reloadOptions();
+                // // load options from the select element
+                // this.options = [...selectEl.options].map(o => ({
+                //     value: o.value,
+                //     label: o.text
+                // }));
 
-                // initial label
-                const initOpt = this.options.find(o => o.value == this.selectedValue);
-                this.selectedLabel = initOpt?.label ?? null;
+                // // initial label
+                // const initOpt = this.options.find(o => o.value == this.selectedValue);
+                // this.selectedLabel = initOpt?.label ?? null;
 
                 // watch Livewire-entangled value
                 this.$watch('selectedValue', () => {
                     const found = this.options.find(o => o.value == this.selectedValue);
                     this.selectedLabel = found?.label ?? null;
                 });
+                // === OBSERVER UNTUK UPDATE DARI LIVEWIRE ===
+    const observer = new MutationObserver(() => {
+        // ketika livewire update <select>, reload semua option
+        this.reloadOptions();
+    });
+
+    // observe perubahan child list <select>
+    observer.observe(selectEl, {
+        childList: true,
+        subtree: true
+    });
+
+
             },
+
+            reloadOptions() {
+                // ambil ulang options dari tag <select>
+                this.options = [...selectEl.options].map(o => ({
+                    value: o.value,
+                    label: o.text
+                }));
+
+                // update selected label
+                const found = this.options.find(o => o.value == this.selectedValue);
+                this.selectedLabel = found?.label ?? null;
+            },
+
 
             // open/close dropdown and scroll logic
             toggleOpen() {
