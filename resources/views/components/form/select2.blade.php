@@ -1,4 +1,4 @@
-<fieldset class="fieldset w-full" x-data="select2Keyboard($refs.originalSelect, @entangle($model).live)" @click.outside="open = false">
+<fieldset class="fieldset w-full" x-data="select2Keyboard($refs.originalSelect, @entangle($model){{ @$live ? '.live' : '' }})" @click.outside="open = false">
     @if ($label)
         <legend class="fieldset-legend">{{ $label }}
             @if ($required)
