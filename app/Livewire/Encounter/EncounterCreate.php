@@ -15,7 +15,6 @@ class EncounterCreate extends Component
 {
     public $patientId;
 
-    public $encounterDate;
     public $encounter_date;
 
     public $condition_keluhan;
@@ -53,16 +52,13 @@ class EncounterCreate extends Component
     public function updatingPatientId($value)
     {
         $this->riwayat = Encounter::with(['condition', 'medication', 'observation', 'specimen'])->where('patient_id', $value)->limit(5)->orderBy('encounter_date', 'desc')->orderBy('created_at', 'desc')->get();
-    }
-
-    public function updatingEncounterDate($value)
-    {
-        $this->patients = Patient::where('status', 'active')->whereLike('nik', '123%')->pluck('full_name', 'id')->all();
 
     }
 
     public function store()
     {
+        // dd($this->patientId);
+
         $this->validate([ 
             'patientId' => 'required',
         ]);
