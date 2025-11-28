@@ -82,16 +82,16 @@
                     this.selectedLabel = found?.label ?? null;
                 });
                 // === OBSERVER UNTUK UPDATE DARI LIVEWIRE ===
-    const observer = new MutationObserver(() => {
-        // ketika livewire update <select>, reload semua option
-        this.reloadOptions();
-    });
+                const observer = new MutationObserver(() => {
+                    // ketika livewire update <select>, reload semua option
+                    this.reloadOptions();
+                });
 
-    // observe perubahan child list <select>
-    observer.observe(selectEl, {
-        childList: true,
-        subtree: true
-    });
+                // observe perubahan child list <select>
+                observer.observe(selectEl, {
+                    childList: true,
+                    subtree: true
+                });
 
 
             },

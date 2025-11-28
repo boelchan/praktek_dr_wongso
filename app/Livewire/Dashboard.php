@@ -3,7 +3,6 @@
 namespace App\Livewire;
 
 use App\Models\Encounter;
-use App\Models\Rekap;
 use Livewire\Component;
 
 class Dashboard extends Component

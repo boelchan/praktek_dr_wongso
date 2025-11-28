@@ -32,6 +32,7 @@ class EncounterCreate extends Component
     public $route_redirect;
 
     public $riwayat = [];
+
     public $patients = [];
 
     public function mount()
@@ -46,7 +47,7 @@ class EncounterCreate extends Component
         }
 
         $this->patients = Patient::where('status', 'active')->pluck('full_name', 'id')->all();
-        
+
     }
 
     public function updatingPatientId($value)
@@ -59,10 +60,10 @@ class EncounterCreate extends Component
     {
         // dd($this->patientId);
 
-        $this->validate([ 
+        $this->validate([
             'patientId' => 'required',
         ]);
-        
+
         $encounter = Encounter::create([
             'patient_id' => $this->patientId,
             'encounter_date' => $this->encounter_date,

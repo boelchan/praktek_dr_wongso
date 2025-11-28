@@ -5,7 +5,6 @@ namespace App\Livewire\Auth;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
-use Masmerise\Toaster\Toaster;
 
 class Profile extends Component
 {
