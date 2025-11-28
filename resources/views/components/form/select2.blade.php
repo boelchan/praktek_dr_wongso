@@ -194,6 +194,8 @@
                 }
 
                 if (e.key === 'Enter') {
+                    e.preventDefault(); // ⛔ cegah form submit
+                    e.stopPropagation(); // ⛔ cegah bubbling
                     const item = this.filteredOptions[this.highlightIndex];
                     if (item) this.choose(item.value);
                 }
