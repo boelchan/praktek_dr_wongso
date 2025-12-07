@@ -8,7 +8,7 @@
                 <x-form.input label="NIK" model="nik" required />
                 <x-form.input label="No Rekam Medis" model="no_rm" />
                 <x-form.input label="Nama " model="full_name" required />
-                <x-form.input label="Tanggal Lahir" model="dob" type="date" required />
+                <x-form.input label="Tanggal Lahir" model="dob" type="date" required/>
                 <x-form.select label="Jenis Kelamin" model="gender" :options="['L' => 'Laki-laki', 'P' => 'Perempuan']" required />
                 <x-form.input label="Alamat" model="address" required />
 

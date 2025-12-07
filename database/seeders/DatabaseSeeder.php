@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Patient;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -25,6 +26,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'operator@gmail.com',
             'password' => bcrypt('123'),
         ]);
+
+        Patient::factory(2000)->create();
 
     }
 }

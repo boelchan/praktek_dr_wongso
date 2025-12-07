@@ -1,6 +1,11 @@
 import './bootstrap';
 import './../../vendor/masmerise/livewire-toaster/resources/js'
 import flatpickr from "flatpickr"
+import { Indonesian } from "flatpickr/dist/l10n/id.js";
+
+window.flatpickr = flatpickr;
+window.flatpickr_local_id = Indonesian;
+
 
 function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
