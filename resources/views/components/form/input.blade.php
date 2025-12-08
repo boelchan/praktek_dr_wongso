@@ -22,9 +22,7 @@
 
     @if ($type == 'date')
         <div
-            x-data="{
-                value: @entangle(($live ? $model . '.live' : $model)),
-            }"
+            x-data="{ value: @entangle($model) }"
             x-init="flatpickr($refs.input, {
                 mode: '{{ $range ? 'range' : 'single' }}',
                 locale: 'id',
@@ -44,6 +42,11 @@
             })"
         >
             <input
+                @if ($live)
+                    wire:model.live="{{ $model }}"
+                @else
+                    wire:model="{{ $model }}"
+                @endif
                 x-ref="input"
                 type="text"
                 x-model="value"
