@@ -6,7 +6,7 @@
                 <h2 class="card-title">Tambah Data</h2>
                 <form wire:submit="store" class="lg:grid grid-cols-2 gap-10 gap-y-0">
                     <div>
-                        <x-form.input-date label="Tanggal" model="encounter_date" type="date" required />
+                        <x-form.input label="Tanggal" model="encounter_date" type="date" required />
                         <x-form.select2 label="Pasien" model="patientId" :options="$patients" live required />
 
                         <x-form.input label="Keluhan" model="condition_keluhan" />
