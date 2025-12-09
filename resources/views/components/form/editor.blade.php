@@ -3,10 +3,12 @@
     'model' => '',
     'required' => false,
     'class' => '',
+    'height' => '100px',     // default tinggi editor
+    'editorClass' => 'mb-10', // default margin bottom
 ])
 
-<fieldset class="fieldset mb-4">
-    <legend class="fieldset-legend text-sm text-gray-700 mb-2">
+<fieldset class="fieldset">
+    <legend class="fieldset-legend">
         {{ $label }}
         @if ($required)
             <span class="text-red-500">*</span>
@@ -24,33 +26,31 @@
                 modules: {
                     toolbar: [
                         ['bold', 'italic', 'underline', 'strike'],
-                        [{ header: 1 }, { header: 2 }],
                         [{ list: 'ordered' }, { list: 'bullet' }],
-                        ['blockquote', 'code-block'],
-                        [{ align: [] }],
                         ['clean']
                     ]
                 }
             });
 
-            // Set initial value jika sudah ada
             quill.root.innerHTML = value ?? '';
 
-            // update Livewire ketika content berubah
             quill.on('text-change', () => {
                 value = quill.root.innerHTML;
             });
 
-            // update editor ketika Livewire mengubah value dari luar
             $watch('value', (html) => {
                 if (quill.root.innerHTML !== html) {
                     quill.root.innerHTML = html ?? '';
                 }
             });
         "
-        class="relative"
+        class="relative {{ $editorClass }}"
     >
-        <div x-ref="editor" class="bg-white border rounded-md"></div>
+        <div
+            x-ref="editor"
+            class="bg-white border rounded-md"
+            style="min-height: {{ $height }};"
+        ></div>
     </div>
 
     <x-form.error :name="$model" />

@@ -10,8 +10,7 @@
                 <x-form.input label="Nama " model="full_name" required />
                 <x-form.input label="Tanggal Lahir" model="dob" type="date" required />
                 <x-form.select label="Jenis Kelamin" model="gender" :options="['L' => 'Laki-laki', 'P' => 'Perempuan']" required />
-                <x-form.input label="Alamat" model="address" required />
-                <x-form.editor label="Catatan Medis" model="address" required />
+                <x-form.editor label="Alamat" model="address" required height="50px"/>
 
                 <button class="btn btn-primary btn-soft mt-4">Simpan</button>
             </form>
