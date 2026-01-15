@@ -10,13 +10,6 @@
       0 => 'Barryvdh\\Debugbar\\ServiceProvider',
     ),
   ),
-  'blade-ui-kit/blade-icons' => 
-  array (
-    'providers' => 
-    array (
-      0 => 'BladeUI\\Icons\\BladeIconsServiceProvider',
-    ),
-  ),
   'laravel-lang/config' => 
   array (
     'providers' => 
@@ -77,18 +70,15 @@
       0 => 'Livewire\\LivewireServiceProvider',
     ),
   ),
-  'mckenziearts/blade-untitledui-icons' => 
+  'masmerise/livewire-toaster' => 
   array (
-    'providers' => 
+    'aliases' => 
     array (
-      0 => 'Mckenziearts\\BladeUntitledUIIcons\\BladeUntitledUIIconsServiceProvider',
+      'Toaster' => 'Masmerise\\Toaster\\Toaster',
     ),
-  ),
-  'mckenziearts/laravel-notify' => 
-  array (
     'providers' => 
     array (
-      0 => 'Mckenziearts\\Notify\\NotifyServiceProvider',
+      0 => 'Masmerise\\Toaster\\ToasterServiceProvider',
     ),
   ),
   'nesbot/carbon' => 
