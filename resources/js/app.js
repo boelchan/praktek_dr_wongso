@@ -1,5 +1,4 @@
 import './bootstrap';
-import './../../vendor/masmerise/livewire-toaster/resources/js'
 import flatpickr from "flatpickr"
 import { Indonesian } from "flatpickr/dist/l10n/id.js";
 
