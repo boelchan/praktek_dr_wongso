@@ -17,6 +17,7 @@
     "dependencies": {
         "@tabler/icons-webfont": "^3.35.0",
         "daisyui": "^5.5.5",
-        "flatpickr": "^4.6.13"
+        "flatpickr": "^4.6.13",
+        "quill": "^2.0.3"
     }
 }
